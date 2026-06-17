@@ -15,7 +15,8 @@ const isBday = now.getDate() === BDAY_DAY &&
                now.getFullYear() === BDAY_YEAR;
 const isPast = now > new Date(BDAY_YEAR, BDAY_MONTH - 1, BDAY_DAY, 23, 59, 59);
 
-const dateStr = now.toLocaleDateString('en-IN', { year:'numeric', month:'long', day:'numeric' });
+const birthdayDate = new Date(BDAY_YEAR, BDAY_MONTH - 1, BDAY_DAY);
+const dateStr = birthdayDate.toLocaleDateString('en-IN', { year:'numeric', month:'long', day:'numeric' });
 document.getElementById('letterDate').textContent = dateStr + ' • Dedicated with love';
 document.getElementById('footerDate').textContent = dateStr;
 
@@ -289,10 +290,46 @@ document.querySelectorAll('.letter-card, .polaroid').forEach(el => observer.obse
 // ══════════════════════════════════════
 // GIFT REVEAL
 // ══════════════════════════════════════
+function playFallbackTada() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const now = ctx.currentTime;
+  const master = ctx.createGain();
+  master.connect(ctx.destination);
+  master.gain.value = 0.06;
+
+  const notes = [659.25, 783.99, 987.77, 1318.51];
+  notes.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(master);
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, now + i * 0.08);
+    gain.gain.setValueAtTime(0.0001, now + i * 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.08, now + i * 0.08 + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.08 + 0.18);
+    osc.start(now + i * 0.08);
+    osc.stop(now + i * 0.08 + 0.22);
+  });
+}
+
 function revealGift() {
   document.getElementById('giftFront').style.display = 'none';
   document.getElementById('giftReveal').classList.add('show');
   launchConfetti();
+
+  const giftAudio = document.getElementById('giftMusic');
+  if (giftAudio) {
+    giftAudio.volume = 0.8;
+    giftAudio.currentTime = 0;
+    giftAudio.play().then(() => {
+      // audio started successfully
+    }).catch(() => {
+      playFallbackTada();
+    });
+  } else {
+    playFallbackTada();
+  }
 }
 function foldBack() {
   document.getElementById('giftReveal').classList.remove('show');
