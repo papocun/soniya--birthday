@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Soniya! 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Audio players -->
+  <audio id="normalMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bdayMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music toggle button -->
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🔇</button>
+
+  <!-- Floating background elements -->
+  <div class="bg-floaters" id="bgFloaters"></div>
+
+  <!-- COUNTDOWN / BIRTHDAY BANNER -->
+  <div id="countdownBanner" class="countdown-banner">
+    <div id="countdownInner"></div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="sparkles" id="sparkles"></div>
+    <p class="eyebrow" id="heroEyebrow">✦ wishing you the happiest day ✦</p>
+    <h1 id="heroTitle">Happy Birthday,<br><span class="name">Soniya!</span></h1>
+    <p class="tagline" id="heroTagline">to our Khikhikhikiii human ;)</p>
+    <div class="hearts-row" id="heartsRow"></div>
+
+    <!-- PHOTO CAROUSEL -->
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow left" onclick="moveCarousel(-1)">&#8249;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <div class="carousel-photo cp1">📸</div>
+            <p class="carousel-caption">our first memory 🌸</p>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-photo cp2">📸</div>
+            <p class="carousel-caption">laughing together ✨</p>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-photo cp3">📸</div>
+            <p class="carousel-caption">always smiling 💫</p>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-photo cp4">📸</div>
+            <p class="carousel-caption">sweet moments 🎂</p>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-photo cp5">📸</div>
+            <p class="carousel-caption">my favorite human 💖</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-arrow right" onclick="moveCarousel(1)">&#8250;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <a href="#letter" class="scroll-btn">keep scrolling ↓</a>
+  </section>
+
+  <!-- LETTER SECTION -->
+  <section id="letter">
+    <div class="letter-card">
+      <span class="letter-heart">💖</span>
+      <div class="letter-inner">
+        <p class="salutation">To my dearest Soniya,</p>
+        <p>Hey Sona,</p>
+        <p>It's been a little over 3 years that we have known each other for, starting mein toh aisa hi tha ki jaise sab se baatein hoti hai waisi hi hmari bhi hongi lekin iss baar kuch alag hua, baatein hui - ekk dusre ko jaana humne lekin baatein khatam nahi hui, naa hi koi block hua, naa hi koi achanak gayab hogya aur mzze ki baat iss baar asliyat mein online friends offline mile. Jo log hmare liye sirf ekk pfp aur bio the woh hmare samne insaan bann kar aaye and that was one of our precious memories that we will cherish for life.</p>
+        <p>On this special day of yours, we will not hold back on complementing you for what you are aur hum chahte hai tu thoda hawa mein udd lee aaj 🙂‍↕️,</p>
+        <p>You are one of the most mature women we have met, who doesn't only know what she is saying but also knows how to say it and what repercussions it will have on the other person, you don't hold grudges - you communicate, you don't abandon us when things get difficult, you bear with the situations just because you feel that if you left then the other person might feel bad and that's what makes you special.</p>
+        <p>You are an empathetic, kind and naturally warm person. I hope you stay like that forever chahe koi aaye yaa jaaye teri life se.</p>
+        <p>Wishing you a great happy birthday,</p>
+        <p>From your good listeners & bad expressive friends,</p>
+        <p class="sign-off">Krish & Baltiboy</p>
+      </div>
+      <div class="letter-footer">
+        <span class="letter-date" id="letterDate"></span>
+        <span class="letter-brand">Truly yours, <strong>Pure Love 🌸</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMORIES SECTION -->
+  <section id="memories">
+    <div class="section-header">
+      <span class="line"></span>
+      <h2>Our Cherished Memories</h2>
+      <span class="line"></span>
+    </div>
+    <p class="section-sub">Hover to enlarge each Polaroid moment 📷</p>
+    <div class="polaroid-grid">
+      <div class="polaroid">
+        <div class="polaroid-photo ph1"></div>
+      </div>
+      <div class="polaroid">
+        <div class="polaroid-photo ph2"></div>
+      </div>
+      <div class="polaroid">
+        <div class="polaroid-photo ph3"></div>
+      </div>
+      <div class="polaroid">
+        <div class="polaroid-photo ph4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURPRISE SECTION -->
+  <section id="surprise">
+    <div class="section-header">
+      <span class="line"></span>
+      <h2>Your Special Surprise</h2>
+      <span class="line"></span>
+    </div>
+    <p class="section-sub">Wait! There's one little thing waiting for you... 🎁</p>
+
+    <div class="gift-box-wrapper" id="giftWrapper">
+      <div class="gift-front" id="giftFront">
+        <div class="gift-icon" onclick="revealGift()">🎁</div>
+        <p class="gift-title">A special treat belongs to you!</p>
+        <p class="gift-hint">Click the gift box or the button below to unlock your sweet surprise.</p>
+        <button class="gift-btn" onclick="revealGift()">Click for your gift! 🎁</button>
+      </div>
+
+      <div class="gift-reveal" id="giftReveal">
+        <div class="confetti-burst" id="confettiBurst"></div>
+        <p class="reveal-title">Ta-Da! Go treat yourself! 🎉</p>
+        <p class="reveal-sub">Here is a little sweet treat. Go grab your favorite double chocolate cookie or a special latte today!</p>
+
+        <!-- IMAGE FOR GIFT SURPRISE -->
+        <div class="note-wrapper">
+          <img class="gift-display-image" src="images/image.png" alt="Birthday surprise gift" />
+        </div>
+
+        <button class="fold-btn" onclick="foldBack()">Fold surprise back ↩</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with ❤️ by Krish&Baltiboy, just for Trish</p>
+    <p class="footer-date" id="footerDate"></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
