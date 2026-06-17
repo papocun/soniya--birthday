@@ -584,45 +584,13 @@ footer .footer-date { opacity: 0.75; font-size: 0.8rem; margin-top: 0.3rem; }
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   .letter-card {
-    padding: 2rem 1rem 3rem;
     overflow: visible;
-  }
-
-  .letter-corner {
-    width: 96px;
-    max-width: 28vw;
-    opacity: 0.95;
   }
 
   .corner-top-left {
     width: 150px;
     max-width: 42vw;
-    top: -34px;
-    left: -18px;
-    z-index: 2;
+    top: -32px;
+    left: -16px;
   }
-
-  .corner-bottom-right {
-    width: 96px;
-    max-width: 28vw;
-    bottom: -18px;
-    right: -8px;
-  }
-
-  .letter-heart {
-    position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    font-size: 1.1rem;
-    z-index: 3;
-  }
-
-  .letter-inner p {
-    font-size: 0.95rem;
-    line-height: 1.75;
-  }
-
-  .polaroid-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .cd-num { font-size: 1.2rem; }
-  .cd-block { min-width: 42px; padding: 0.2rem 0.5rem; }
 }
