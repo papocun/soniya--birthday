@@ -358,13 +358,17 @@ section { position: relative; z-index: 1; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
-  opacity: 0.6;
+  overflow: hidden;
+  background: #f9eef3;
 }
-.ph1 { background: linear-gradient(135deg, #f9c6d0, #e8355a55); }
-.ph2 { background: linear-gradient(135deg, #fde8d8, #f5a62355); }
-.ph3 { background: linear-gradient(135deg, #d8f0fd, #3590e855); }
-.ph4 { background: linear-gradient(135deg, #e8d8fd, #9035e855); }
+
+.memory-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+}
 
 .polaroid-label {
   font-family: 'Caveat', cursive;
