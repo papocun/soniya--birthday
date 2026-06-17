@@ -584,31 +584,30 @@ footer .footer-date { opacity: 0.75; font-size: 0.8rem; margin-top: 0.3rem; }
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   .letter-card {
-    padding: 2rem 1rem 2.8rem;
+    padding: 2rem 1rem 3rem;
     overflow: visible;
   }
 
   .letter-corner {
-    width: 118px;
-    max-width: 36vw;
-    opacity: 0.95;
+    width: 132px;
+    max-width: 38vw;
+    opacity: 1;
   }
 
   .corner-top-left {
-    top: -18px;
-    left: -8px;
-    transform: translateY(0);
+    top: -24px;
+    left: -12px;
   }
 
   .corner-bottom-right {
-    bottom: -18px;
-    right: -8px;
+    bottom: -22px;
+    right: -10px;
   }
 
   .letter-heart {
-    top: 0.4rem;
-    right: 0.4rem;
-    font-size: 1.2rem;
+    top: 0.35rem;
+    right: 0.35rem;
+    font-size: 1.1rem;
   }
 
   .letter-inner p {
