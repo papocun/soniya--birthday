@@ -154,23 +154,30 @@ function startBdayMusic() {
 
 function toggleMusic() {
   const btn = document.getElementById('musicBtn');
-  // First click — need user gesture to unlock AudioContext
+  const selectedAudio = isBday ? bdayAudio : normalAudio;
+  const otherAudio = isBday ? normalAudio : bdayAudio;
+
   if (!musicOn) {
     musicOn = true;
     btn.textContent = '🔊';
     btn.classList.add('playing');
-    if (isBday) {
-      startBdayMusic();
-    } else {
-      startNormalMusic();
-    }
+
+    // Stop any other song before starting the selected one
+    otherAudio.pause();
+    otherAudio.currentTime = 0;
+
+    // Use the actual local audio files
+    selectedAudio.currentTime = 0;
+    selectedAudio.play().catch(() => {
+      musicOn = false;
+      btn.textContent = '🔇';
+      btn.classList.remove('playing');
+    });
   } else {
     musicOn = false;
     btn.textContent = '🔇';
     btn.classList.remove('playing');
-    if (melodyInterval) clearInterval(melodyInterval);
-    melodyInterval = null;
-    if (audioCtx) { audioCtx.suspend(); audioCtx = null; }
+    selectedAudio.pause();
   }
 }
 
