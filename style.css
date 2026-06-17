@@ -589,25 +589,32 @@ footer .footer-date { opacity: 0.75; font-size: 0.8rem; margin-top: 0.3rem; }
   }
 
   .letter-corner {
-    width: 132px;
-    max-width: 38vw;
-    opacity: 1;
+    width: 96px;
+    max-width: 28vw;
+    opacity: 0.95;
   }
 
   .corner-top-left {
-    top: -24px;
-    left: -12px;
+    width: 150px;
+    max-width: 42vw;
+    top: -34px;
+    left: -18px;
+    z-index: 2;
   }
 
   .corner-bottom-right {
-    bottom: -22px;
-    right: -10px;
+    width: 96px;
+    max-width: 28vw;
+    bottom: -18px;
+    right: -8px;
   }
 
   .letter-heart {
-    top: 0.35rem;
-    right: 0.35rem;
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
     font-size: 1.1rem;
+    z-index: 3;
   }
 
   .letter-inner p {
