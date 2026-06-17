@@ -487,7 +487,7 @@ footer .footer-date { opacity: 0.75; font-size: 0.8rem; margin-top: 0.3rem; }
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 640px;
   margin: 2rem auto 1.5rem;
   animation: fadeUp 1s ease 0.35s both;
 }
@@ -512,21 +512,22 @@ footer .footer-date { opacity: 0.75; font-size: 0.8rem; margin-top: 0.3rem; }
 
 .carousel-photo {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4/5;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
-  opacity: 0.55;
-  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  background: #fce7ef;
+  border-radius: 18px;
 }
-/* To swap in a real photo, replace the background with:
-   background: url('images/photo1.jpg') center/cover no-repeat; */
-.cp1 { background: linear-gradient(135deg, #ffd6e8, #e8355a44); }
-.cp2 { background: linear-gradient(135deg, #fde8d8, #f5a62355); }
-.cp3 { background: linear-gradient(135deg, #d8f0fd, #3590e855); }
-.cp4 { background: linear-gradient(135deg, #e8d8fd, #9035e855); }
-.cp5 { background: linear-gradient(135deg, #d8fde8, #35e85555); }
+
+.carousel-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
 
 .carousel-caption {
   background: rgba(255,255,255,0.92);
