@@ -405,10 +405,16 @@ const catWidget = document.getElementById('cat-widget');
 const catBubble = document.getElementById('cat-bubble');
 const catBody = document.getElementById('cat-body');
 const catMessages = [
-  'Here is your bouquet for you 🌸',
-  'A little bouquet for my birthday girl 💐',
-  'Hope this bouquet brings you joy 💖',
-  'Happy birthday, beautiful soul 🎂'
+  "Hey Sona!\nHappy Birthday! 🎂",
+  "What's your\nplan today,\nqueen? 👑",
+  "You look SO\ncute today! ✨",
+  "Go treat\nyourself!\nNo excuses 💅",
+  "Khikhikhikiii\nHappy bday!! 🎉",
+  "You deserve\nALL the cake\ntoday! 🍰",
+  "Birthday\nqueen mode:\nON 👸",
+  "You're literally\nglowing rn 🌟",
+  "Any parties\nhappening?\nTell me! 🥳",
+  "here is the bouquet for you"
 ];
 let catMsgIndex = 0;
 let catDrag = false;
