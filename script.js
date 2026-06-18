@@ -397,3 +397,72 @@ function launchPageConfetti() {
     }
   }, 4000);
 }
+
+// ══════════════════════════════════════
+// CAT WIDGET
+// ══════════════════════════════════════
+const catWidget = document.getElementById('cat-widget');
+const catBubble = document.getElementById('cat-bubble');
+const catBody = document.getElementById('cat-body');
+const catMessages = [
+  'Here is your bouquet for you 🌸',
+  'A little bouquet for my birthday girl 💐',
+  'Hope this bouquet brings you joy 💖',
+  'Happy birthday, beautiful soul 🎂'
+];
+let catMsgIndex = 0;
+let catDrag = false;
+let catOffsetX = 0;
+let catOffsetY = 0;
+
+function showCatBubble() {
+  catBubble.textContent = catMessages[catMsgIndex];
+  catBubble.classList.add('show');
+  clearTimeout(showCatBubble.timeout);
+  showCatBubble.timeout = setTimeout(() => {
+    catBubble.classList.remove('show');
+  }, 2400);
+}
+
+function cycleCatMessage() {
+  catMsgIndex = (catMsgIndex + 1) % catMessages.length;
+  showCatBubble();
+}
+
+function startCatMessageLoop() {
+  setInterval(() => {
+    cycleCatMessage();
+  }, 5000);
+}
+
+catBody.addEventListener('click', () => {
+  cycleCatMessage();
+});
+
+catBody.addEventListener('pointerdown', (e) => {
+  catDrag = true;
+  catBody.classList.add('dragging');
+  const rect = catWidget.getBoundingClientRect();
+  catOffsetX = e.clientX - rect.left;
+  catOffsetY = e.clientY - rect.top;
+  catBody.setPointerCapture(e.pointerId);
+});
+
+window.addEventListener('pointermove', (e) => {
+  if (!catDrag) return;
+  const maxX = window.innerWidth - catWidget.offsetWidth;
+  const maxY = window.innerHeight - catWidget.offsetHeight;
+  const x = Math.min(maxX, Math.max(0, e.clientX - catOffsetX));
+  const y = Math.min(maxY, Math.max(0, e.clientY - catOffsetY));
+  catWidget.style.left = `${x}px`;
+  catWidget.style.top = `${y}px`;
+  catWidget.style.bottom = 'auto';
+});
+
+window.addEventListener('pointerup', () => {
+  if (!catDrag) return;
+  catDrag = false;
+  catBody.classList.remove('dragging');
+});
+
+startCatMessageLoop();
